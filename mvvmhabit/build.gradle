@@ -2,6 +2,23 @@ apply plugin: 'com.android.library'
 
 apply plugin: 'maven-publish'
 
+group = 'com.github.life20230602'
+version = '1.0'
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.life20230602'
+                artifactId = 'mvvmbase'
+                version = '1.0'
+            }
+        }
+    }
+}
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
